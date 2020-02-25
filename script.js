@@ -45,8 +45,20 @@ let cleer = () => {
 
 // кнопка Круг
 let round = () => {
-
+	var root = document.getElementById('rt');
+	let newRnd = document.createElement('div');
+	newRnd.innerHTML = "круг";
+	root.appendChild(newRnd);
 };
+
+// var offBtn = document.createElement("Button");
+//         offBtn.type = "button";
+// 	offBtn.className = "off";
+// 	offBtn.innerHTML = "Стоп";
+// 	offBtn.addEventListener('click', () => {   
+// 		this._timer.off();
+// 		this.stateChange();
+// 	});    root.appendChild(onBtn);
 
 let vewtime = (taim) => {
 	var tm = taim
