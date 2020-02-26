@@ -29,7 +29,7 @@ var on = () => {	// кнопка Включить
 		clearTimeout(timerId); count=0;};
 	  setTimeout(function ff() {
     console.log(i);
-    vewtime(i);
+    vewtime(i,tbl);  		// отображение
     // tbl.innerHTML = (`i = ${i}`);
     if (i < end) {      
       timerId = setTimeout(ff, 10);
@@ -48,8 +48,9 @@ let round = () => {
 
 	var root = document.getElementById('rt');
 	let newRnd = document.createElement('div');
-	newRnd.innerHTML = "круг";
+	// newRnd.innerHTML = "круг";
 	root.appendChild(newRnd);
+	vewtime(i,newRnd);  		// отображение
 };
 
 // var offBtn = document.createElement("Button");
@@ -61,7 +62,7 @@ let round = () => {
 // 		this.stateChange();
 // 	});    root.appendChild(onBtn);
 
-let vewtime = (taim) => {	// отображение времени
+let vewtime = (taim, target) => {	// отображение времени
 	var tm = taim
 	if(tm%6000==0){		// проверка кратности минут
 		mins=`${(tm-tm%6000)/6000}`;
@@ -77,7 +78,7 @@ let vewtime = (taim) => {	// отображение времени
 	
 	// формирование отображаемой строки
 	// msecs = `${tm - (tm%500)*500 - (tm%100)*100}`;
-	str = tbl.innerHTML = (`tm ${mins}min${secs}sec${tm}ms`);
+	str = target.innerHTML = (`tm ${mins}min${secs}sec${tm}ms`);
 };
 
 
