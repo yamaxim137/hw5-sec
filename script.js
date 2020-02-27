@@ -27,8 +27,8 @@ var on = () => {	// кнопка Включить
 	if(vkl.innerHTML == `Включить`){
 		count=1; vkl.innerHTML = (`Пауза`);
 		setTimeout(function ff() {
-		    if(i%15==0){console.log(i)};
-		    vewtime(i,tbl);  		// отображение в tbl - табло
+		    if(i%150 == 0){console.log(i)};
+		    vewTime(i,tbl);  		// отображение в tbl - табло
 		    // tbl.innerHTML = (`i = ${i}`);
 		    if (i < end) {      
 		    	timerId = setTimeout(ff, 10);
@@ -61,7 +61,7 @@ let round = () => {
 	let newRnd = document.createElement('div');
 	// newRnd.innerHTML = "круг";
 	rond.appendChild(newRnd);
-	vewtime(i,newRnd);  		// отображение
+	vewTime(i,newRnd);  		// отображение i(счётчик) в круг
 };
 
 // var offBtn = document.createElement("Button");
@@ -73,7 +73,7 @@ let round = () => {
 // 		this.stateChange();
 // 	});    root.appendChild(onBtn);
 
-let vewtime = (taim, target) => {	// отображение времени taim в target
+let vewTime = (taim, target) => {	// отображение времени taim в target
 	var tm = taim;
 	if(tm%6000==0){		// проверка кратности минут
 		mins=`${(tm-tm%6000)/6000}`;  // вычисляем минуты
@@ -85,11 +85,14 @@ let vewtime = (taim, target) => {	// отображение времени taim 
 		if(Number(secs)<10){secs=0+secs;};
 		tm=tm%100;
 	};
-	if(tm>100){tm=tm%100}; // проверка наличия секунд
+	if(tm>100){tm=tm%100}  // проверка наличия секунд
 	
 	// формирование отображаемой строки
 	// msecs = `${tm - (tm%500)*500 - (tm%100)*100}`;
-	str = target.innerHTML = (`tm ${mins}min${secs}sec${tm}ms`);
+	// str = target.innerHTML = (`tm ${mins}min${secs}sec${tm}ms`);
+
+	if(tm<10){str = target.innerHTML = (`tm = ${mins} min ${secs} sec 0${tm} milisec`)}else{
+	str = target.innerHTML = (`tm = ${mins} min ${secs} sec ${tm} milisec`);}
 };
 
 
