@@ -24,22 +24,30 @@ var rond = document.getElementById('rd'); // div для записи круго�
 var i = 0; var end = 500000;
 
 var on = () => {	// кнопка Включить
-	if(vkl.innerHTML == `Старт`){count=1;};
-	vkl.innerHTML = (`Пауза`);
+	if(vkl.innerHTML == `Включить`){
+		count=1; vkl.innerHTML = (`Пауза`);
+		setTimeout(function ff() {
+		    if(i%15==0){console.log(i)};
+		    vewtime(i,tbl);  		// отображение в tbl - табло
+		    // tbl.innerHTML = (`i = ${i}`);
+		    if (i < end) {      
+		    	timerId = setTimeout(ff, 10);
+		    };
+    		i++;       
+  		}, 10);
+	};
+	if(vkl.innerHTML == `Пауза`){
+		count=0;
+		vkl.innerHTML = (`Включить`);
+		clearTimeout(timerId);
+	};
 	// count++;
 	// if(count%2==0) {
 		// clearTimeout(timerId);
 		 // count=0;
 	// };
-	setTimeout(function ff() {
-    if(i%15==0){console.log(i)};
-    vewtime(i,tbl);  		// отображение
-    // tbl.innerHTML = (`i = ${i}`);
-    if (i < end) {      
-      timerId = setTimeout(ff, 10);
-      };
-    	i++;       
-  }, 10);
+
+	
 };
 
 // кнопка Очистить
@@ -72,7 +80,7 @@ let vewtime = (taim, target) => {	// отображение времени taim 
 		tm=tm%6000;
 	};
 	if(tm%100==0){		// проверка кратности секунд
-		secs=`${(tm-tm%100)/100}`;			// % - остаток от деления
+		secs=`${(tm%6000-tm%100)/100}`;			// % - остаток от деления
 		if(Number(secs)<10){secs=0+secs;};
 		tm=tm%100;
 	};
