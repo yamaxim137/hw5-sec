@@ -19,14 +19,17 @@ let secs = '00'; // секунды
 let msecs ='00'; // миллисекунды 
 
 var tbl = document.getElementById("tablo"); // табло
-var vkl = document.getElementById("vkl");	// vkl
-var i = 0; var end = 5000;
+var vkl = document.getElementById("vkl");	// vkl - кнопка вкл/пауза
+var rond = document.getElementById('rd'); // div для записи кругов
+var i = 0; var end = 500000;
 
 var on = () => {	// кнопка Включить
+	if(vkl.innerHTML == `Старт`){count=1;};
 	vkl.innerHTML = (`Пауза`);
-	count++;
-	if(count%2==0) {
-		clearTimeout(timerId); count=0;};
+	// count++;
+	// if(count%2==0) {
+		clearTimeout(timerId); count=0;
+	// };
 	  setTimeout(function ff() {
     console.log(i);
     vewtime(i,tbl);  		// отображение
@@ -45,11 +48,9 @@ let cleer = () => {
 
 // кнопка Круг
 let round = () => {
-
-	var root = document.getElementById('rt');
 	let newRnd = document.createElement('div');
 	// newRnd.innerHTML = "круг";
-	root.appendChild(newRnd);
+	rond.appendChild(newRnd);
 	vewtime(i,newRnd);  		// отображение
 };
 
@@ -62,10 +63,10 @@ let round = () => {
 // 		this.stateChange();
 // 	});    root.appendChild(onBtn);
 
-let vewtime = (taim, target) => {	// отображение времени
-	var tm = taim
+let vewtime = (taim, target) => {	// отображение времени taim в target
+	var tm = taim;
 	if(tm%6000==0){		// проверка кратности минут
-		mins=`${(tm-tm%6000)/6000}`;
+		mins=`${(tm-tm%6000)/6000}`;  // вычисляем минуты
 		if(Number(mins)<10){mins=0+mins;};
 		tm=tm%6000;
 	};

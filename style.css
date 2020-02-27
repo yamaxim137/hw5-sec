@@ -3,7 +3,16 @@
 }
 
 .contaner{
+	/* display: inline-block; */
 	margin: auto;
 	top: 40%;
 	left: 40%;
+}
+
+.rt{
+	display:flex;	
+}
+
+.rd{
+	display: block;
 }
