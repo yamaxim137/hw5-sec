@@ -3,12 +3,13 @@ let mins = '00'; // минуты
 let secs = '00'; // секунды 
 let msecs ='00'; // миллисекунды 
 
-var tbl = document.getElementById("tablo"); // табло
-var vkl = document.getElementById("vkl");	// vkl - кнопка вкл/пауза
-var rond = document.getElementById('rd'); // div для записи кругов
-var i = 0; var end = 500000;
+let tbl = document.getElementById("tablo"); // табло
+let vkl = document.getElementById("vkl");	// vkl - кнопка вкл/пауза
+let rond = document.getElementById('rd'); // div для записи кругов
+let i = 0;
+let end = 50000000;
 
-var on = () => {	// кнопка Включить
+let on = () => {	// кнопка Включить
 	if(vkl.innerHTML == `Включить`){
 		vkl.innerHTML = (`Пауза`);
 		setTimeout(function ff() {
@@ -48,14 +49,6 @@ let round = () => {
 	vewTime(i,newRnd);  		// отображение i(счётчик) в круг
 };
 
-// var offBtn = document.createElement("Button");
-//         offBtn.type = "button";
-// 	offBtn.className = "off";
-// 	offBtn.innerHTML = "Стоп";
-// 	offBtn.addEventListener('click', () => {   
-// 		this._timer.off();
-// 		this.stateChange();
-// 	});    root.appendChild(onBtn);
 
 let vewTime = (taim, target) => {	// отображение времени taim в target
 	var tm = taim;
