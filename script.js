@@ -1,19 +1,4 @@
-// кнопка Включить
-// var on = () => {
-// 	let goTimer = (end=500,beg=0) => {
-//     setTimeout(ff(end,beg), 10);
-//   };
-//   goTimer(7,2);
-// };
 
-// var ff = (end,beg) => {
-//       	console.log(`beg = ${beg}`);
-// 	      if (beg < end) {setTimeout(ff, 10);};
-//       	beg++;
-//       	console.log(`beg = ${beg}`);
-//       };
-
-let count=0;
 let mins = '00'; // минуты 
 let secs = '00'; // секунды 
 let msecs ='00'; // миллисекунды 
@@ -25,11 +10,10 @@ var i = 0; var end = 500000;
 
 var on = () => {	// кнопка Включить
 	if(vkl.innerHTML == `Включить`){
-		count=1; vkl.innerHTML = (`Пауза`);
+		vkl.innerHTML = (`Пауза`);
 		setTimeout(function ff() {
 		    if(i%150 == 0){console.log(i)};
 		    vewTime(i,tbl);  		// отображение в tbl - табло
-		    // tbl.innerHTML = (`i = ${i}`);
 		    if (i < end) {      
 		    	timerId = setTimeout(ff, 10);
 		    };
@@ -42,18 +26,18 @@ var on = () => {	// кнопка Включить
 		vkl.innerHTML = (`Включить`);
 		clearTimeout(timerId);
 	};
-	// count++;
-	// if(count%2==0) {
-		// clearTimeout(timerId);
-		 // count=0;
-	// };
-
-	
 };
 
-// кнопка Очистить
-let cleer = () => {
- clearTimeout(timerId);
+let pauseVcl = () => {
+	if(vkl.innerHTML == `Пауза`){
+		vkl.innerHTML = (`Включить`);}
+}
+
+let cleer = () => {		// кнопка Очистить
+	clearTimeout(timerId);
+	i=0;
+	vewTime(i,tbl);
+	pauseVcl();
 };
 
 // кнопка Круг
