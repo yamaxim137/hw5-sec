@@ -28,10 +28,11 @@ var on = () => {	// кнопка Включить
 	vkl.innerHTML = (`Пауза`);
 	// count++;
 	// if(count%2==0) {
-		clearTimeout(timerId); count=0;
+		// clearTimeout(timerId);
+		 // count=0;
 	// };
-	  setTimeout(function ff() {
-    console.log(i);
+	setTimeout(function ff() {
+    if(i%15==0){console.log(i)};
     vewtime(i,tbl);  		// отображение
     // tbl.innerHTML = (`i = ${i}`);
     if (i < end) {      
