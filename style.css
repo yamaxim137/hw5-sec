@@ -1,4 +1,5 @@
 .btn{
+	top: 40%;
 	display: inline-block;
 }
 
@@ -10,9 +11,10 @@
 }
 
 .rt{
-	display:flex;	
+	display:flex;
+	top: 400px;	
 }
 
-.rd{
-	display: block;
-}
+/* .rd{ */
+	/* display: block; */
+/* } */
